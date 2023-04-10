@@ -16,6 +16,8 @@ vector的实现技术，关键在于其对大小的控制以及重新配置时�
 
 注意：vector动态增加大小时，并不是在原空间之后持续新空间（因为无法保证原空间之后尚有可供配置的空间），而是以原大小的两倍另外配置一块较大的空间，然后将原内容拷贝过来，然后才开始在原内容之后构造新元素，并释放原空间。**因此，对vector的任何操作，一旦引起空间重新配置，指向原vector的所有迭代器就都失效了**。这是程序员易犯的一个错误，务需小心。
 
+![Image text](https://github.com/7Meet112/Others/blob/main/Image/vector2.png)
+![Image text](https://github.com/7Meet112/Others/blob/main/Image/vector1.png)
 ##### 二、方法
 ###### 2.1 常见用法
 ```
