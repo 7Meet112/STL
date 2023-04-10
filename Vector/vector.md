@@ -148,6 +148,10 @@ for (int i = 0; i < 4; ++i)
 	res.back().push_back(i);
 	// res.push_back(i);   // 报错，i不是vector<int> 类型
 }
+
+// vector<vector<int> > array
+// int m=array.size();
+// int n=array[0].size();
 ```
 ##### 三、源码参考
 
