@@ -134,7 +134,7 @@ const char* cstr = str.c_str();
 char* s = "it";
 string str(s);
 // string to int
-采用标准库中atoi函数。
+采用标准库中atoi函数。#include <stdlib.h>
 string s = "12";
 int a = atoi(s.c_str());
 // int to string 
