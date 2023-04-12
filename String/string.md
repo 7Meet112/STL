@@ -133,6 +133,13 @@ const char* cstr = str.c_str();
 //char* 转 string 
 char* s = "it";
 string str(s);
+// string to int
+采用标准库中atoi函数。
+string s = "12";
+int a = atoi(s.c_str());
+// int to string 
+int i = 12;
+cout << std::to_string(i) << endl;
 ```
 ###### 2.10 用getline读取一整行
 getline的函数格式：getline(cin,string对象)
