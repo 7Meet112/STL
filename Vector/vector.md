@@ -583,6 +583,7 @@ void vectorTest()
         if (*iter == 3)
         {
             iter = container.erase(iter); // erase的返回值是删除元素下一个元素的迭代器
+	    std::cout << *iter << std::endl; // 4
         }
         else
         {
@@ -596,7 +597,9 @@ void vectorTest()
         if (*iter == 3)
         {
             iter = container.insert(iter, 12); // 返回值是指向插入元素的迭代器
+	    std::cout << *iter << std::endl; // 12
             iter += 2;  // 本例中，插入之前iter指向3，在3之前插入12，iter指向12，insert 之后需要iter指向新增加的元素，+2 之后指向下一个要处理的元素
+	    std::cout << *iter << std::endl; // 4
         }
         else
         {
