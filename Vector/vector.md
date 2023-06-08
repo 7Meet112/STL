@@ -639,5 +639,6 @@ swap()释放空间，改变end_of_storage。
 v.reserve(10);
 vector<int>().swap(v); // capacity = size = 0
 ```
-
+##### 六、补充
+1. 在c++11中，vector 增加了data()的用法，它返回内置vecotr所指的数组内存的第一个元素的指针.
 
