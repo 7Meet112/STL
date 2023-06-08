@@ -641,4 +641,14 @@ vector<int>().swap(v); // capacity = size = 0
 ```
 ##### 六、补充
 1. 在c++11中，vector 增加了data()的用法，它返回内置vecotr所指的数组内存的第一个元素的指针.
+2. 类中构造函数初始化
+```
+class CFightClient
+{
+public:
+    vector<int> buffer;
+    CFightClient(int nNum):buffer(nNum, 11){}
+};
 
+// == vector(n, elem);			构造函数将n个elem拷贝给本身
+```
