@@ -652,3 +652,31 @@ public:
 
 // == vector(n, elem);			构造函数将n个elem拷贝给本身
 ```
+3. 排序
+```
+#include <vector>
+#include <algorithm>
+
+    vector<vector<int>> A;
+    A.push_back({2, 22});
+    A.push_back({1, 22});
+    A.push_back({1, 11});
+    A.push_back({3, 33});
+
+    for (auto &cc : A)
+    {
+        for (auto &c : cc)
+        {
+            std::cout << c << std::endl;
+        }
+    }
+    std::cout << "----------------" << std::endl;
+    sort(A.begin(), A.end());
+    for (auto &cc : A)
+    {
+        for (auto &c : cc)
+        {
+            std::cout << c << std::endl;
+        }
+    }
+```
