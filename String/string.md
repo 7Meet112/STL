@@ -80,14 +80,16 @@ int compare(const char *s) const;	// 与字符串s比较
 ```
 ###### 2.7 子串
 ```
-string substr(int pos = 0, int n = npos) const; // 返回由pos开始的n个字符组成的字符串
+// string substr(int pos = 0, int n = npos) const; // 返回由pos开始的n个字符组成的字符串
 
 // 使用字符分割
-void Stringsplit(const string& str, const char split, vector<string>& res)
+void Stringsplit(const string& str, const string& split, vector<string>& res)
 {
 	if (str == "")		return;
 	//在字符串末尾也加入分隔符，方便截取最后一段
 	string strs = str + split;
+    int nGap = split.size();
+
 	size_t pos = strs.find(split);
  
 	// 若找不到内容则字符串搜索函数返回 npos
@@ -96,7 +98,7 @@ void Stringsplit(const string& str, const char split, vector<string>& res)
 		string temp = strs.substr(0, pos);
 		res.push_back(temp);
 		//去掉已分割的字符串,在剩下的字符串中进行分割
-		strs = strs.substr(pos + 1, strs.size());
+		strs = strs.substr(pos + nGap, strs.size());
 		pos = strs.find(split);
 	}
 }
@@ -105,7 +107,7 @@ void TestSplit()
 {
 	vector<string> strList;
 	string str("This-is-a-test");
-	Stringsplit(str, '-', strList);
+	Stringsplit(str, "-", strList);
 	for (auto s : strList)
 		cout << s << " ";
 	cout << endl;
