@@ -273,6 +273,9 @@ map<int, string> ID_Name =
     {2016, "Tom"},
     {2017, "Bob"}
 };
+
+ it->second
+(*it).second
 ```
 ###### 迭代器
 ```
@@ -295,10 +298,15 @@ const_mmap.cbegin();    //const_iterator
 ```
 ###### 插入
 insert函数返回pair类型，第一个参数是返回的元素迭代器（iter）第二个为bool，插入成功的话pair参数一才保存返回的节点元素。
-> std::pair<std::map<char, int>::iterator, bool> ret;
-ret = mymap.insert(std::pair<char, int>('z', 500));
-ret.first->first ret.first->second ret.second 
-
+```
+    std::pair<std::map<int, string>::iterator, bool> ret;
+    ret = mp.insert(std::pair<int, string>(1004, "wen"));
+    if (ret.second)
+    {
+        std::cout << ret.first->first << std::endl;
+        std::cout << ret.first->second << std::endl;
+    }
+```
 ```
 // 插入操作 
 // map.insert(...); // 往容器插入元素，返回pair<iterator,bool>
@@ -369,15 +377,19 @@ int main()
     int nSize;   //用学生信息映射分数  
     map<Studentinfo, int>mapStudent;
     map<Studentinfo, int>::iterator iter;
+
     Studentinfo studentinfo;
     studentinfo.niD = 1;
     studentinfo.strName = "student_one";
     mapStudent.insert(pair<Studentinfo, int>(studentinfo, 90));
+
     studentinfo.niD = 2;
     studentinfo.strName = "student_two";
     mapStudent.insert(pair<Studentinfo, int>(studentinfo, 80));
+
     for (iter = mapStudent.begin(); iter != mapStudent.end(); iter++)
         cout << iter->first.niD << ' ' << iter->first.strName << ' ' << iter->second << endl;
+
     return 0;
 }
 ```
