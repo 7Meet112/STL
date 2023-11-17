@@ -9,6 +9,7 @@
     - [定义声明](#定义声明)
     - [迭代器](#迭代器)
     - [插入](#插入)
+    - [erase](#erase)
     - [排序](#排序)
   - [2.3 实例](#23-实例)
 - [三、multimap](#三multimap)
@@ -348,6 +349,54 @@ anothermap.insert(mymap.begin(), mymap.find('c'));
 
 // 列表形式插入
 anothermap.insert({ { 'd', 100 }, {'e', 200} });
+```
+###### erase
+```
+#include <map>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{   
+    map<int, string> mapStu;
+    // 第一种 通过pair的方式插入对象
+    mapStu.insert(pair<int, string>(3, "小张"));
+    // 第二种 通过pair的方式插入对象
+    mapStu.insert(make_pair(-1, "校长"));
+    // 第三种 通过value_type的方式插入对象
+    mapStu.insert(map<int, string>::value_type(1, "小李"));
+    // 第四种 通过数组的方式插入值
+    mapStu[3] = "小刘";
+    mapStu[5] = "小王";
+    // cout << mapStu.size() << endl;
+
+    for (auto cc : mapStu)
+    {
+        std::cout << cc.first << " " << cc.second << std::endl;
+    }
+
+    map<int, string>::iterator iter;
+    for (iter = mapStu.begin(); iter != mapStu.end(); iter++)
+    {   
+        cout << iter->first << ' '<< iter->second << endl;
+    }
+
+    for (iter = mapStu.begin(); iter != mapStu.end();)
+    {   
+        if (iter->first == 3)
+        {
+            iter = mapStu.erase(iter);
+        }
+        else
+        {
+            iter++;
+        }
+    }
+
+    // mapStu.erase(3);
+    return 0;
+}
 ```
 ###### 排序
 map中的元素是自动按Key升序排序，所以不能对map用sort函数,STL中默认是采用小于号来排序的，
