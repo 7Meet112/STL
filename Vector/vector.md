@@ -642,7 +642,31 @@ vector<int>().swap(v); // capacity = size = 0
 ```
 ##### 六、补充
 1. 在c++11中，vector 增加了data()的用法，它返回内置vecotr所指的数组内存的第一个元素的指针.
-2. 类中构造函数初始化
+该函数返回一个指向数组中第一个元素的指针，该指针在向量内部使用。
+```
+// C++ program to demonstrate the
+// vector::date() function
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+	// initialising vector
+	vector<int> vec = { 10, 20, 30, 40, 50 };
+ 
+	// memory pointer pointing to the
+	// first element
+	int* pos = vec.data();
+ 
+	// prints the vector
+	cout << "The vector elements are: ";
+	for (int i = 0; i < vec.size(); ++i)
+		cout << *pos++ << " ";
+ 
+	return 0;
+}
+```
+3. 类中构造函数初始化
 ```
 class CFightClient
 {
