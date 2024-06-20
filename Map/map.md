@@ -324,6 +324,8 @@ mapStu.insert(map<int, string>::value_type(1, "小李"));
 mapStu[3] = "小刘";
 mapStu[5] = "小王";
 cout << mapStu.size() << endl;
+//  第五种 列表形式插入
+anothermap.insert({ { 'd', 100 }, {'e', 200} });
 
 std::map<char, int> mymap;
 // 插入单个值
